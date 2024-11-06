@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  seq:
+    image: datalust/seq
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINUSERNAME=admin
+      - SEQ_FIRSTRUN_ADMINPASSWORD=your_secure_password
+    ports:
+      - "5341:80"
+    volumes:
+      - seq_data:/data
+      - seq_logs:/logs
+    restart: unless-stopped
+
+volumes:
+  seq_data:
+  seq_logs:
+  
+  # command for run this file ==> docker-compose up -d

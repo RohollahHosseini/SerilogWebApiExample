@@ -31,6 +31,10 @@ namespace SerilogWebApi
             //logging to Console
             configuration.WriteTo.Console().MinimumLevel.Error();
 
+            //Add SEQ Panel
+            //get ApiKey from ==> SEQ Panel
+            configuration.WriteTo.Seq(serverUrl:"http://localhost:5341",apiKey:"uDsyNV8sq2DiE8E6InC2",restrictedToMinimumLevel:
+               Serilog.Events.LogEventLevel.Information);
 
             //logging to file => .json
             configuration.WriteTo
